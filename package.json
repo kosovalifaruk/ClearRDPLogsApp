@@ -6,7 +6,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "dist": "cross-env PYTHON=$(which python3) electron-builder"
+    "dist:mac": "cross-env PYTHON=$(which python3) electron-builder",
+    "dist:win": "cross-env PYTHON=python electron-builder",
+    "dist": "npm run dist:mac && npm run dist:win"
   },
   "devDependencies": {
     "cross-env": "^7.0.3",
