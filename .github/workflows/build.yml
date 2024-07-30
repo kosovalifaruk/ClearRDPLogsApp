@@ -29,7 +29,9 @@ jobs:
         run: npm install
 
       - name: Build the Electron app for macOS
-        run: npm run dist
+        run: |
+          export PYTHON=$(which python3)
+          npm run dist:mac
 
       - name: Upload macOS Artifact
         uses: actions/upload-artifact@v2
@@ -57,7 +59,9 @@ jobs:
         run: npm install
 
       - name: Build the Electron app for Windows
-        run: npm run dist
+        env:
+          PYTHON: python
+        run: npm run dist:win
 
       - name: Upload Windows Artifact
         uses: actions/upload-artifact@v2
