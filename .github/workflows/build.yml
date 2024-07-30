@@ -29,6 +29,8 @@ jobs:
         run: npm install
 
       - name: Build the Electron app for macOS
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
         run: |
           export PYTHON=$(which python3)
           npm run dist:mac
@@ -60,6 +62,7 @@ jobs:
 
       - name: Build the Electron app for Windows
         env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
           PYTHON: python
         run: npm run dist:win
 
