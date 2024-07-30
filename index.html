@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clear RDP Logs</title>
+</head>
+<body>
+    <h1>Clear RDP Logs</h1>
+    <button id="clearLogs">Clear RDP Logs</button>
+
+    <script>
+        const clearLogsButton = document.getElementById('clearLogs');
+
+        clearLogsButton.addEventListener('click', async () => {
+            try {
+                const result = await window.electronAPI.clearRdpLogs();
+                alert(result);
+            } catch (error) {
+                alert('Error: ' + error);
+            }
+        });
+    </script>
+</body>
+</html>

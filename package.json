@@ -1,0 +1,36 @@
+{
+  "name": "ClearRDPLogsApp",
+  "version": "1.0.0",
+  "description": "Clear RDP Logs Application",
+  "author": "Your Name",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "cross-env PYTHON=$(which python3) electron-builder"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "electron": "^15.5.7",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.example.clearRDPLogs",
+    "files": [
+      "main.js",
+      "preload.js",
+      "index.html",
+      "node_modules/**/*"
+    ],
+    "mac": {
+      "target": [
+        "zip",
+        "dmg"
+      ],
+      "icon": "path/to/icon.icns"
+    },
+    "win": {
+      "target": "nsis",
+      "requestedExecutionLevel": "requireAdministrator"
+    }
+  }
+}
